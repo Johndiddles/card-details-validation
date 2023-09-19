@@ -20,13 +20,16 @@ export const FormInput = ({
       ref={inputWrapperRef}
       className="w-full px-4 py-2 flex flex-col gap-1 border border-gray-300 text-gray-500 rounded"
     >
-      <label className="capitalize text-sm">{label}</label>
+      <label htmlFor={name} className="capitalize text-sm">
+        {label}
+      </label>
       <input
+        id={name}
         value={value}
         onChange={onChange}
         name={name}
         placeholder={placeholder}
-        className="outline-none text-gray-700 w-full"
+        className="outline-none text-gray-700 w-full capitalize font-semibold"
         onFocus={() => {
           if (inputWrapperRef?.current) {
             inputWrapperRef.current.classList.add("border-sky-700");
