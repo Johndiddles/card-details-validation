@@ -81,7 +81,6 @@ const PaymentForm = () => {
     setIsSubmitting(true);
     try {
       const response: apiResponseType = await axios.post(url, formData);
-      console.log({ response });
       if (response?.status === 200) {
         toast.success("Success");
       }
@@ -89,9 +88,10 @@ const PaymentForm = () => {
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.log({ error });
       if (error?.response?.status === 400) {
-        toast.error(error?.response?.data?.message);
+        error?.response?.data?.message
+          ?.split(", ")
+          ?.map((message: string) => toast.error(message));
       } else {
         toast.error(
           "Sorry, we're unable to verify your card details at this time"
