@@ -16,6 +16,12 @@ Yarn
     git clone https://github.com/Johndiddles/card-details-validation
 ```
 
+- Navigate into the project folder
+
+```
+    cd card-details-validation
+```
+
 - install all the dependecies
 
 ```yarn
